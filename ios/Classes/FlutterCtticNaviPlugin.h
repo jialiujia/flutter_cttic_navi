@@ -1,0 +1,7 @@
+#import <Flutter/Flutter.h>
+
+@interface FlutterCtticNaviPlugin : NSObject<FlutterPlugin>
+
+#define PUBLIC_KEY @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCkeUS6rw6GcOPqrcDePDnWOagLF/dyFZa47fidv/VXuaJ3wY0sYikaRR07ZMqRq0hsd0f9sPi+7ZOPZSc3J0bBV4mbQnjauEdPTUFtEp7wYGqHwkA5AHFVlil4Ofl0D8c29vp87w5ytXaiW2UUfiJOPfU0GU3hF78xy+sCOg+yoQIDAQAB"
+
+@end

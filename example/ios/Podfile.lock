@@ -1,0 +1,35 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_cttic_navi (0.0.1):
+    - Flutter
+  - flutter_localization (0.0.1):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_cttic_navi (from `.symlinks/plugins/flutter_cttic_navi/ios`)
+  - flutter_localization (from `.symlinks/plugins/flutter_localization/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_cttic_navi:
+    :path: ".symlinks/plugins/flutter_cttic_navi/ios"
+  flutter_localization:
+    :path: ".symlinks/plugins/flutter_localization/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_cttic_navi: 48d82183ec83ac151e2e321b587377c5cca4f3d5
+  flutter_localization: f43b18844a2b3d2c71fd64f04ffd6b1e64dd54d4
+  shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.11.2
