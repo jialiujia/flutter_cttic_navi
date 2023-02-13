@@ -50,10 +50,14 @@ class FlutterCtticNavi {
       await showDialog(context: context, builder:  (BuildContext context) {
         return CenterAlterWidget("提示", "是否完成导航",
           onConfirm: () {
-            onComplete();
+            if (onComplete != null) {
+              onComplete();
+            }
           },
           onCancel: () {
+          if (onCancel != null) {
             onCancel();
+          }
           },
         );
       });
@@ -103,10 +107,14 @@ class FlutterCtticNavi {
     await showDialog(context: context, builder:  (BuildContext context) {
       return CenterAlterWidget("提示", "是否已完成导航",
         onConfirm: () {
-          onComplete();
+          if (onComplete != null) {
+            onComplete();
+          }
         },
         onCancel: () {
-          onCancel();
+          if (onCancel != null) {
+            onCancel();
+          }
         },
       );
     });
