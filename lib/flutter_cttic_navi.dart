@@ -72,11 +72,12 @@ class FlutterCtticNavi {
   /// startPoint         起始位置
   /// endPoint           结束位置，必填参数
   /// intermediatePoints 中间点数组
+  /// simulationEnabled  模拟导航
   /// onComplete         点击弹框完成导航回调
   /// onCancel           点击弹框未完成导航回调
   Future<bool> startDockNavigation(BuildContext context, String userId,
       String deviceId, String carNo, NavPoint? startPoint,
-      NavPoint endPoint, List<NavPoint>intermediatePoints,  {onComplete, onCancel}) async {
+      NavPoint endPoint, List<NavPoint>intermediatePoints,  {simulationEnabled=false, onComplete, onCancel}) async {
     if (userId.trim().isEmpty) {
       throw Exception("用户ID不能为空");
     }
@@ -99,7 +100,7 @@ class FlutterCtticNavi {
     }
 
     bool result = await FlutterCtticNaviPlatform.instance.startDockNavigation(userId, deviceId, carNo, startPoint,
-        endPoint, intermediatePoints);
+        endPoint, intermediatePoints, simulationEnabled: simulationEnabled);
 
     if (!result) {
       print("场內导航调用失败，请检查参数是否正确");

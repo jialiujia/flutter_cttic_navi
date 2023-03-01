@@ -24,21 +24,23 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
   final _flutterCtticNaviPlugin = FlutterCtticNavi();
-  var endPoint, endPoint2;
+  var endPoint, endPoint2, startPoint;
   List<NavPoint> intermediatePoints = [];
   List<NavPoint> intermediatePoints2 = [];
 
   @override
   void initState() {
     super.initState();
-    endPoint = NavPoint(name: "外二");
+    startPoint = NavPoint(name: "入口", latitude: 31.364465922683074, longitude: 121.57926661179363);
+    endPoint = NavPoint(name: "嘉里中心");
     endPoint2 = NavPoint(name: "出口", latitude: 31.36789296787859, longitude: 121.56662522100687);
-    var point1 = NavPoint(name: "西藏北路");
-    var point2 = NavPoint(name: "静安寺");
-    var point3 = NavPoint(name: '5J-1', latitude:0.0, longitude:0.0);
-    var point4 = NavPoint(name: '5J-2', latitude:0.0, longitude:0.0);
-    var point5 = NavPoint(name: '5J-2', latitude:0.0, longitude:0.0);
+    var point1 = NavPoint(name: "久光");
+    var point2 = NavPoint(name: "静安大悦城");
+    var point3 = NavPoint(name: '4A-33', latitude:0.0, longitude:0.0);
+    var point4 = NavPoint(name: '4A-40', latitude:0.0, longitude:0.0);
+    var point5 = NavPoint(name: '4A-46', latitude:0.0, longitude:0.0);
     intermediatePoints.add(point1);intermediatePoints.add(point2);
+    intermediatePoints = [];
     intermediatePoints2.add(point3);intermediatePoints2.add(point4);
     intermediatePoints2.add(point5);
   }
@@ -57,7 +59,7 @@ class _MyAppState extends State<MyApp> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextButton(onPressed: () async {
-                await _flutterCtticNaviPlugin.startAmapNavigation(context, "13917745806", "test1", "沪牌",
+                await _flutterCtticNaviPlugin.startAmapNavigation(context, "13917745806", "test1", "沪AGX3621",
                     null, endPoint, intermediatePoints, onComplete: () => {
                       print("完成场外导航")
                     },
@@ -65,8 +67,8 @@ class _MyAppState extends State<MyApp> {
                 );
               }, child: const Text("厂区外"),),
               TextButton(onPressed: () async {
-                await _flutterCtticNaviPlugin.startDockNavigation(context, "13917745806", "test1", "沪牌",
-                    null, endPoint2, intermediatePoints2, onComplete: ()=> print("完成场內导航"),
+                await _flutterCtticNaviPlugin.startDockNavigation(context, "13917745806", "test1", "沪AGX3621",
+                    startPoint, endPoint2, intermediatePoints2, simulationEnabled: false, onComplete: ()=> print("完成场內导航"),
                     onCancel: ()=> print("未完成场內导航")
                 );
               }, child: const Text("厂区內"),),

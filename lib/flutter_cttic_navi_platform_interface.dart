@@ -40,7 +40,7 @@ abstract class FlutterCtticNaviPlatform extends PlatformInterface {
 
   Future<bool> startDockNavigation(String userId,
       String deviceId, String carNo, NavPoint? startPoint,
-      NavPoint endPoint, List<NavPoint>intermediatePoints) {
+      NavPoint endPoint, List<NavPoint>intermediatePoints, {simulationEnabled=false}) {
     throw UnimplementedError('startDockNavigation(String, String, String, String?, String, List<String>) has not been implemented.');
   }
 }

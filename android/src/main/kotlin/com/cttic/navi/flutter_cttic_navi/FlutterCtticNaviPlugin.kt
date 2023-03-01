@@ -36,6 +36,7 @@ class FlutterCtticNaviPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     } else if (call.method == "startAmapNavigation" || call.method == "startDockNavigation") {
       val enity = call.argument<String>("enity")
+      val simulationEnabled = call.argument<Boolean>("simulationEnabled")
       enity?.let { Log.i("FlutterCtticNaviPlugin", it) }
       val packName = "cn.ctticsh.msd"
       val packManager = binding?.applicationContext?.packageManager
@@ -44,6 +45,11 @@ class FlutterCtticNaviPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
       val bundle = Bundle()
       val encryptedText = enity?.let { encryptByRsa("public.pem", it) }
       bundle.putString("msd", encryptedText)
+      if (simulationEnabled != null) {
+        bundle.putBoolean("simulationEnabled", simulationEnabled)
+      } else {
+        bundle.putBoolean("simulationEnabled", false)
+      }
       intent?.putExtras(bundle)
       if (intent != null && activity != null) {
         activity!!.startActivity(intent)

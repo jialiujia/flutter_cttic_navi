@@ -33,7 +33,7 @@ class MethodChannelFlutterCtticNavi extends FlutterCtticNaviPlatform {
     NavEnity enity = NavEnity(NavType.OUT, userId, deviceId, carNo, endPoint, startPoint: startPoint, intermediatePoints: intermediatePoints);
     String navJson = json.encode(enity);
     result = await methodChannel.invokeMethod("startAmapNavigation", <String, dynamic> {
-      'enity': navJson
+      'enity': navJson,
     });
     return result;
   }
@@ -41,12 +41,13 @@ class MethodChannelFlutterCtticNavi extends FlutterCtticNaviPlatform {
   @override
   Future<bool> startDockNavigation(String userId,
       String deviceId, String carNo, NavPoint? startPoint,
-      NavPoint endPoint, List<NavPoint>intermediatePoints) async {
+      NavPoint endPoint, List<NavPoint>intermediatePoints, {simulationEnabled=false}) async {
     bool result;
     NavEnity enity = NavEnity(NavType.IN, userId, deviceId, carNo, endPoint, startPoint: startPoint, intermediatePoints: intermediatePoints);
     String navJson = json.encode(enity);
     result = await methodChannel.invokeMethod("startDockNavigation", <String, dynamic> {
-      'enity': navJson
+      'enity': navJson,
+      'simulationEnabled': simulationEnabled
     });
     return result;
   }
